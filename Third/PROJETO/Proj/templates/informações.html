@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Homepage</title>
+        <link rel="stylesheet" href="/static/w3.css"/>
+    </head>
+    <body class="w3-light-gray">
+        <div class="w3-display-topleft">
+            <a href="{{ url_for('homepage') }}"><button class="w3-button w3-blue w3-round-large">Voltar</button></a>
+        </div>        
+        <div class="w3-display-topmiddle">
+            <h1 class="w3-margin-bottom">Aqui encontras tudo sobre o que estás a ver!</h1>
+            <br>
+        </div>
+        <div class="w3-center w3-margin-bottom">
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>Proposto pelo docente <em>José Carlos Ramalho</em>, este pequeno projeto consiste numa pequena aplicação web para consulta e pesquisa de informação. Informação esta cuja consiste na criação de um modelo normalizado para as bases jurídicas atualmente disponíveis e também armazenar essa informação numa base de dados em MongoDB</p>
+            <p>A informação anteriormente falada consiste num conjunto de ficheiros json que representam o <em>dataset</em> de um tribunal específico.</p>
+            <div class="w3-center">
+                <p>Mas o que são esses <em>datasets</em>?</p>
+            </div>
+            <p>São, na sua forma estrutural, uma lista de dicionários, estrutura esta simples de manusear, facilitando a vida de quem trabalha de forma integra com este tipo de dados.</p>
+            <p>Cada dicionário, contém um conjunto de chaves e os seus respetivos valores, sendo estes, respetivamente, os campos de cada acórdao e a correspondente resposta a este mesmo.</p>
+            <p>Como podemos ver na figura, são estruturas, que simplificam todo o trabalho, de forma organizada.</p>
+            <p>Eis um exemplo:</p>
+            <div class="w3-center">
+                <img src="{{ url_for('static', filename='images/ex_file_json.png') }}" alt="Domvs ivstitiae" style="width: 850px;">
+            </div>
+            <p>Para a criação desta aplicação web, foram disponibilizados 14 <em>datasets</em>, divididos por tribunal, mais especificamente:</p>
+            <style>
+                ul {
+                  list-style-type: disc;
+                  color:blue;
+                  list-style-type: none;
+                }
+                li {
+                  position: relative;
+                }
+                li::before {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                }
+              </style>
+            <ul class="w3-center">
+                <li>atco1</li>
+                <li>jcon</li>
+                <li>jdgpj</li>
+                <li>jsta</li>
+                <li>jstj</li>
+                <li>jtca</li>
+                <li>jtcampca</li>
+                <li>jtcampct</li>
+                <li>jtcn</li>
+                <li>jtrc</li>
+                <li>jtre</li>
+                <li>jtrg</li>
+                <li>jtrl</li>
+                <li>jtrp</li>
+            </ul>
+            <div class="w3-center">
+                <p><strong>Agora podes ver os criadores deste conteudo!</strong></p>
+                <a href="{{ url_for('mostrar_autores') }}"><button class="w3-button w3-blue w3-round-large">Autores</button></a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Acordãos</title>
+        <link rel="stylesheet" href="/static/w3.css"/>
+        
+    </head>
+    <body>
+        <h1 class="w3-center">Acórdãos</h1>
+
+        <div class="w3-display-topleft">
+            <a href="{{ url_for('homepage') }}"><button class="w3-button w3-blue w3-round-large">Voltar</button></a>
+        </div>  
+
+            <div class="w3-col s3 w3-right">
+            <input type="text" name="search_query" placeholder="Search..." id="searchBox" class="w3-input w3-left w3-round-large w3-small w3-blue">
+        </div>
+        <table class="w3-table-all w3-striped w3-border w3-hoverable">
+            <thead>
+                <tr class="w3-blue">
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Processo</th>
+                    <th>Descritores</th>
+                    <th>Tribunal</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                {% for acordao in acordaos['acordaos'] %}
+                <tr class="w3-borderer">
+                    <td><a href="/acordaos/{{ acordao['id'] }}" target="_blank"><button class="w3-button w3-blue w3-round-large">{{ acordao['id'] }}</button></a></td>
+                    {% if 'Data do Acordão' in acordao %}
+                    <td>{{ acordao['Data do Acordão'] }}</td>
+                    {% elif 'Data da Decisão' in acordao %}
+                    <td>{{ acordao['Data da Decisão'] }}</td>
+                    {% else  %}
+                    <td>{{ acordao['Data'] }}</td>
+                    {% endif %}
+                    <td>{{ acordao['Processo'] }}</td>
+                    <td>{{ acordao['Descritores'] }}</td>
+                    <td>{{ acordao['tribunal'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       
+
+        <script>
+            const searchBox = document.getElementById('searchBox');
+            const tableBody = document.getElementById('tableBody');
+            const rows = tableBody.getElementsByTagName('tr');
+
+            searchBox.addEventListener('keyup', function () {
+                const filter = searchBox.value.toLowerCase();
+
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i];
+                    const cells = row.getElementsByTagName('td');
+                    let visible = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+
+                        if (cell.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                            visible = true;
+                            break;
+                        }
+                    }
+
+                    row.style.display = visible ? '' : 'none';
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Autores da Página</title>
+        <link rel="stylesheet" href="/static/w3.css"/>
+    </head>
+    <body  class="w3-light-gray">
+        <div class="w3-display-bottomleft">
+            <a href="{{ url_for('mostrar_informaçoes') }}"><button class="w3-button w3-blue w3-round-large">Voltar</button></a>
+        </div>
+        <div class="w3-center">
+            <div class="w3-display-topleft">
+                <p><strong> Diogo Aires </strong></p>
+                <p>A91685</p>
+                <img src="{{ url_for('static', filename='images/diogo.jpeg') }}" alt="Domvs ivstitiae" style="width: 100%;">
+            </div>
+            <div class="w3-display-topmiddle">
+                <p><strong> Fernanda Dias </strong></p>
+                <p> A73169</p>
+                <img src="{{ url_for('static', filename='images/fernanda.jpeg') }}" alt="Domvs ivstitiae" style="width: 100%;">
+            </div>
+            <div class="w3-display-topright">
+                <p><strong> Jorge Silva </strong></p>
+                <p>A80931</p>
+                <img src="{{ url_for('static', filename='images/jorge.png') }}" alt="Domvs ivstitiae" style="width: 100%;">
+            </div>
+        </div>
+        <p class="w3-display-middle">
+            Sendo todos os membros do grupo alunos de LCC, encontramos nesta página algumas informações relativas aos mesmos.
+            Atualmente encontram-se sem nenhum registro criminal/jurídico.
+            Jovens desenvolvedores de software com grandes ambições.
+        </p>
+    </body>
+</html>
+

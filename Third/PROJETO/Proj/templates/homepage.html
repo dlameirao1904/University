@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Homepage</title>
+        <link rel="stylesheet" href="/static/w3.css"/>
+        <style>
+            img {
+                width: 70%;
+                display: block;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body class="w3-light-gray">
+        <div class="w3-center">
+            <div class="w3-display-topmiddle">
+                <div class="w3-container w3-center">
+                    <h1><strong>Bases Jurídicas</strong></h1>
+                    <a href="{{ url_for('mostrar_acordaos') }}"><button class="w3-button w3-blue">Acórdãos</button></a>
+                    <a href="{{ url_for('mostrar_informaçoes') }}"><button class="w3-button w3-blue">Informações</button></a>
+                </div>
+            </div>
+            <div class="w3-display-middle">
+                <img src="{{ url_for('static', filename='images/base-jurídica.jpg') }}" alt="Domvs ivstitiae" style="width: 120%; height: 120%;">
+            </div>
+            <p class="w3-display-bottommiddle w3-container w3-center">
+                <strong>
+                    Bem-vindo à nossa página jurídica, onde encontrarás uma ampla variedade de informações sobre acórdãos e decisões legais importantes. 
+                    A nossa página é um recurso valioso para aqueles que procuram informações confiáveis e atualizadas sobre a jurisprudência e os princípios jurídicos. 
+                    Aqui, verás uma coleção cuidadosamente selecionada de acórdãos importantes, acompanhada de análises e comentários de especialistas em direito. 
+                    Pretendemos fornecer um ambiente educacional e informativo para estudantes, advogados e profissionais de direito. 
+                    Explora nossa página para descobrir como a nossa coleção de acórdãos pode te ajudár a entender melhor as nuances do direito e como elas se aplicam em diferentes contextos jurídicos.
+                </strong>
+            </p>
+        </div>
+    </body>
+</html>
