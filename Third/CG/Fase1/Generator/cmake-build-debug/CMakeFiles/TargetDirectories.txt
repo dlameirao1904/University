@@ -1,0 +1,3 @@
+/home/diogo/Desktop/Programming/CG/TP/Generator/cmake-build-debug/CMakeFiles/Generator.dir
+/home/diogo/Desktop/Programming/CG/TP/Generator/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/diogo/Desktop/Programming/CG/TP/Generator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
