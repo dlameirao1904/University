@@ -1,0 +1,259 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[portuges]{babel}
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[titletoc]{appendix}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{\underline{\textbf{\large{Pedido}}}}
+\lstdefinestyle{mystyle}{frame=leftline,breaklines=true}
+\lstset{style=mystyle}
+% Useful packages
+\usepackage{amsmath}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\date{}
+\title{Computação Gráfica \\ Fase 2 \\ LCC - 3º Ano - 2º Semestre}
+
+\author{Jorge Silva - A80931
+        \and
+        Diogo Aires - A91685
+        \and
+        Márlon Ferreira - A81735
+        \and
+        Cristiana Ribeiro - A91679}
+
+\begin{document}
+\large
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/index.png}
+\end{figure}
+
+\maketitle
+\newpage
+
+%indice
+\renewcommand{\contentsname}{Índice} 
+\tableofcontents
+
+\newpage
+
+%introduçao
+\section{Introdução}
+Nesta fase do projeto, foi desenvolvido um sistema de criação de cenários hierárquicos usando transformações geométricas. Um cenário é definido como uma árvore, na qual cada nó contém um conjunto de transformações geométricas (translação, rotação e escala), além de um conjunto opcional de modelos. Cada nó pode ter também nós filhos.
+
+As transformações geométricas são aplicadas a todos os modelos e subgrupos dentro de um grupo e existe apenas uma transformação de cada tipo em cada grupo. É importante realçar que a ordem das transformações é relevante.
+
+O objetivo final desta fase foi criar um modelo estático do sistema solar. De forma a facilitar a visualização deste modelo foi implementada a "movimentação" da câmara, com as teclas $w$, $s$, $a$ e $d$, respetivamente equivalentes a "↑", " ↓", "←" e "→", bem como "aproximação" da câmara (tecla $e$) e a opção de afastar a mesma (tecla $q$). 
+
+É ainda relevante salientar que o $engine$ foi o "elemento" chave desta fase, sendo assim, grande parte do trabalho orientado para ele.
+
+\newpage
+
+\section{Ficheiro XML}
+
+Nesta nova fase, os ficheiros XML, além de conterem as informações respetivas a uma fase anterior (ou seja, respetivas à câmara), para representar um cenário, têm a sua estrutura organizada em árvore, onde cada nodo contém um conjunto de transformações geométricas e/ou um conjunto de modelos. Juntamente com esta nova organização está também especificada a câmara.
+
+Eis um exemplo de um ficheiro XML (dado no enunciado):
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ex_fileXML.png}
+    \caption{Excerto de um ficheiro XML}
+    \label{fig:exemplo}
+\end{figure}
+
+Como conseguimos ver pelo excerto dado, cada nodo corresponde a um $group$ que é definido por um conjunto de elementos:
+\begin{itemize}
+    \item subgrupos (não especificado na Figura 1).
+    \item transformações;
+    \item modelos;
+\end{itemize}
+
+\newpage
+
+\section{Engine}
+
+O engine desenvolvido é uma aplicação capaz de renderizar cenas 3D em tempo real. Este é responsável por ler ficheiros XML, definir parâmetros da câmara, e aplicar transformações geométricas para criar cenários (hierárquicas complexos).
+
+\subsection{Point}
+Um dos pontos mais importantes para a movimentação da câmara foi a implementação da classe $Point$.
+Nesta altura mudamos assim a forma como trabalhamos os pontos, não como uma estrutura de dados (assim desenvolvido na fase anterior) mas sim como um objeto.
+
+Existem dois tipos de pontos geométricos: 
+\begin{itemize}
+    \item pontos cartesianos
+    \item pontos esféricos
+\end{itemize}
+
+De forma a respeitar esta forma, na classe $Point$, as coordenadas dos nossos pontos são definidas:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/coordenadas.png}
+    \caption{Coordenadas}
+    \label{fig:exemplo}
+\end{figure}
+
+O cálculo das cordenadas cartesianas (a partir dum ponto esférico) é dado por uma função,como podemos ver, respetivamente:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/transfcoordenadas.png}
+    \caption{Cálculo dos pontos cartesianos}
+    \label{fig:exemplo}
+\end{figure}
+
+respeitando as fórmulas trigonométricas.
+
+\subsection{World}
+
+O nosso ficheiro XML, depois de lido, é convertido para um objeto de tipo $World$, através da função $convertToWorld()$, função definida no $xmlParser$, obtendo toda a informação necessária para a realização do teste contida neste, como por exemplo informações sobre a janela, câmara, entre outros.
+
+\newpage
+
+\subsection{Group}
+
+O $Group$ é definido da seguinte forma:
+\begin{itemize}
+    \item \textbf{vector$<$Group$>$} : um vetor de subgrupos 
+    \item \textbf{vector$<$Model$>$} : um vetor de modelos
+\end{itemize}
+
+é também, ainda constituído por um $Transform \ transform$, respetiva às transformações.
+
+É dentro de um grupo que encontramos informações relativas às transformações numa data estrutura geométrica bem como os modelos a serem renderizados.
+Quando encontrado um grupo no ficheiro a função procura as transformações deste, definindo estas (matrizes), isto é, dando $set$ à respetiva transformação, "empilhando" na $STACK$ (Relembrar que a ordem das transformações é relevante).
+
+\subsubsection{Transform}
+Esta classe é respetiva às transformações contidas no XML. Transformações estas como:
+
+\begin{itemize}
+    \item translate 
+    \item scale 
+    \item rotate 
+\end{itemize}
+
+respetivamente, translação, escala e rotação.
+
+Para além disso, elaboramos para cada transformação os getters e setters das suas variáveis, bem como os seus respetivos construtores.
+
+Tal como dito anteriormente, à medida que são definidas as transformações, é dado $PUSH$ destas mesmo para a $STACK$
+
+\subsubsection{Models}
+
+Especifica os modelos 3D que devem ser renderizados numa cena.
+
+\newpage
+\subsection{Render}
+
+Consiste em duas funções que realizam a renderização de uma cena hierárquica definida através de grupos contendo transformações geométricas e modelos.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/renderScene.png}
+    \caption{renderScene}
+    \label{fig:exemplo}
+\end{figure}
+
+Esta função é responsável por desenhar a cena atual em 3D. Começa por limpar os buffers de cor e profundidade, configura a câmara, desenha os modelos e, por fim, apresenta o resultado na tela.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/renderGroups.png}
+    \caption{renderGroups}
+    \label{fig:exemplo}
+\end{figure}
+
+Esta função é responsável por desenhar um grupo de modelos. Percorre as transformações do grupo e aplica cada uma na ordem definida. Em seguida, desenha cada modelo do grupo, iterando sobre cada vértice e enviando as coordenadas para a GPU. Por fim, a função itera recursivamente para desenhar quaisquer subgrupos do grupo atual. A função glPushMatrix() guarda a matriz de transformação atual numa pilha antes de chamar a função renderGroups(), e a função glPopMatrix() restaura a matriz de transformação guardada na pilha após retornar da chamada recursiva.
+
+
+\newpage
+\section{Movimentação e Teclado}
+
+Tal como referido anteriormente, conseguimos agora alterar a posição da nossa câmara para melhor visualização do modelo, através das teclas $w$, $s$, $a$ e $d$, respetivamente equivalentes a "↑", " ↓", "←" e "→", bem como "aproximação" da câmara (tecla $e$) e a opção de afastar a mesma (tecla $q$).
+
+\newpage
+
+\section{Conclusão}
+Na fase 2 do projeto de Computação Gráfica, o objetivo era desenvolver um sistema de criação de cenários hierárquicos usando transformações geométricas, com a finalidade de criar um modelo estático do sistema solar. Para isso, foi implementada uma nova estrutura de ficheiro XML organizada em árvore, onde cada nó contém um conjunto de transformações geométricas e/ou modelos. O "engine" foi o elemento-chave desta fase, permitindo aplicar as transformações geométricas de forma adequada e implementar a movimentação da câmara.O resultado final foi um modelo visualmente apelativo do sistema solar, com a possibilidade de navegar pelo cenário e explorá-lo de diferentes perspetivas.
+
+\newpage
+
+\section{Testes}
+Testes referentes à segunda fase fornecidos pela a equipa docente e também do sistema solar.
+Relativamente ao sistema solar apresentamos de seguida 3 "sistemas distintos".
+Primeiramente, apresentamos um sistema de escalas totalmente irreais de forma a visualizar o nosso sistema totalmente.
+Apresentamos depois duas verões realistas, uma com luas e a outra sem luas.
+Seguidamente apresentamos uma pequena vista (realista) desse mesmo sistema.
+É necessário referir que as escalas foram calculados com base na nossa lua.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/image4.png}
+    \caption{Teste 2 - 1}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/image3.png}
+    \caption{Teste 2 - 2}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/image2.png}
+    \caption{Teste 2 - 3}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/image1.png}
+    \caption{Teste 2 - 4}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ss.png}
+    \caption{Sistema Solar com escalas irreais}
+    \label{fig: exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ssreal.png}
+    \caption{Sistema Solar com escala reais}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ssrealnomoons.png}
+    \caption{Sistema Solar com escala reais sem luas}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ssrealnomoons.png}
+    \caption{Vista do Sistema Solar}
+    \label{fig:exemplo}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ssrealnomoons.png}
+    \caption{Vista do Sistema Solar}
+    \label{fig:exemplo}
+\end{figure}
+
+\end{document}
