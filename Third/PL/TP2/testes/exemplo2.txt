@@ -1,0 +1,13 @@
+ARR a[5]
+int i = 0
+int n = 13
+
+ENQUANTO <(i, 5):
+    a[i] = LER
+    i = +(i, 1)
+    ;
+
+ENQUANTO <(i, 5):
+    SE <(a[i], n) : a[i] = -(i, 1);
+    i = +(i, i)
+    ;

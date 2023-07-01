@@ -1,0 +1,14 @@
+int i = 0
+int j = 0
+int n = 10
+
+MAT mat[5][5]
+
+ENQUANTO !=(i, 4):
+    ENQUANTO !=(j, 4):
+        mat[i][j] = *(n, 10)
+        j = +(j,1)
+        ;
+    ;
+
+

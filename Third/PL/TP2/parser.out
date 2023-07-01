@@ -1,0 +1,3173 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> Program
+Rule 1     Program -> Commands
+Rule 2     Commands -> <empty>
+Rule 3     Commands -> Command Commands
+Rule 4     Command -> Declaration
+Rule 5     Declaration -> INT NOME
+Rule 6     Declaration -> ARRAY NOME PAA NUMBER PAF
+Rule 7     Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+Rule 8     Command -> Assign
+Rule 9     Assign -> INT NOME EQUALS NUMBER
+Rule 10    Assign -> NOME EQUALS Expression
+Rule 11    Assign -> NOME PAA Expression PAF EQUALS Expression
+Rule 12    Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+Rule 13    Assign -> NOME EQUALS LER
+Rule 14    Assign -> NOME PAA Expression PAF EQUALS LER
+Rule 15    Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+Rule 16    Command -> Write
+Rule 17    Write -> ESCREVER Expression
+Rule 18    Command -> Enq
+Rule 19    Enq -> ENQUANTO Condition FAZ Commands STOPCOM
+Rule 20    Command -> Se
+Rule 21    Se -> SE Condition FAZ Commands STOPCOM
+Rule 22    Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+Rule 23    Expression -> <empty>
+Rule 24    Expression -> NUMBER
+Rule 25    Expression -> PCA Expression PCF
+Rule 26    Expression -> PLUS PCA Expression VIRG Expression PCF
+Rule 27    Expression -> MINUS PCA Expression VIRG Expression PCF
+Rule 28    Expression -> TIMES PCA Expression VIRG Expression PCF
+Rule 29    Expression -> DIVIDE PCA Expression VIRG Expression PCF
+Rule 30    Expression -> Condition
+Rule 31    Condition -> PCA Condition PCF
+Rule 32    Condition -> EQEQ PCA Expression VIRG Expression PCF
+Rule 33    Condition -> NEQ PCA Expression VIRG Expression PCF
+Rule 34    Condition -> GEQ PCA Expression VIRG Expression PCF
+Rule 35    Condition -> LEQ PCA Expression VIRG Expression PCF
+Rule 36    Condition -> BIGGER PCA Expression VIRG Expression PCF
+Rule 37    Condition -> MINOR PCA Expression VIRG Expression PCF
+Rule 38    Condition -> E PCA Expression VIRG Expression PCF
+Rule 39    Condition -> OU PCA Expression VIRG Expression PCF
+Rule 40    Expression -> Var
+Rule 41    Var -> NOME
+Rule 42    Var -> NOME PAA Expression PAF
+Rule 43    Var -> NOME PAA Expression PAF PAA Expression PAF
+
+Terminals, with rules where they appear
+
+ARRAY                : 6
+BIGGER               : 36
+DIVIDE               : 29
+E                    : 38
+ENQUANTO             : 19
+EQEQ                 : 32
+EQUALS               : 9 10 11 12 13 14 15
+ESCREVER             : 17
+FAZ                  : 19 21 22 22
+GEQ                  : 34
+INT                  : 5 9
+LEQ                  : 35
+LER                  : 13 14 15
+MATRIZ               : 7
+MINOR                : 37
+MINUS                : 27
+NEQ                  : 33
+NOME                 : 5 6 7 9 10 11 12 13 14 15 41 42 43
+NUMBER               : 6 7 7 9 24
+OU                   : 39
+PAA                  : 6 7 7 11 12 12 14 15 15 42 43 43
+PAF                  : 6 7 7 11 12 12 14 15 15 42 43 43
+PCA                  : 25 26 27 28 29 31 32 33 34 35 36 37 38 39
+PCF                  : 25 26 27 28 29 31 32 33 34 35 36 37 38 39
+PLUS                 : 26
+SE                   : 21 22
+SENAO                : 22
+STOPCOM              : 19 21 22
+TIMES                : 28
+VIRG                 : 26 27 28 29 32 33 34 35 36 37 38 39
+error                : 
+
+Nonterminals, with rules where they appear
+
+Assign               : 8
+Command              : 3
+Commands             : 1 3 19 21 22 22
+Condition            : 19 21 22 30 31
+Declaration          : 4
+Enq                  : 18
+Expression           : 10 11 11 12 12 12 14 15 15 17 25 26 26 27 27 28 28 29 29 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 42 43 43
+Program              : 0
+Se                   : 20
+Var                  : 40
+Write                : 16
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Program
+    (1) Program -> . Commands
+    (2) Commands -> .
+    (3) Commands -> . Command Commands
+    (4) Command -> . Declaration
+    (8) Command -> . Assign
+    (16) Command -> . Write
+    (18) Command -> . Enq
+    (20) Command -> . Se
+    (5) Declaration -> . INT NOME
+    (6) Declaration -> . ARRAY NOME PAA NUMBER PAF
+    (7) Declaration -> . MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+    (9) Assign -> . INT NOME EQUALS NUMBER
+    (10) Assign -> . NOME EQUALS Expression
+    (11) Assign -> . NOME PAA Expression PAF EQUALS Expression
+    (12) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> . NOME EQUALS LER
+    (14) Assign -> . NOME PAA Expression PAF EQUALS LER
+    (15) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+    (17) Write -> . ESCREVER Expression
+    (19) Enq -> . ENQUANTO Condition FAZ Commands STOPCOM
+    (21) Se -> . SE Condition FAZ Commands STOPCOM
+    (22) Se -> . SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+
+    $end            reduce using rule 2 (Commands -> .)
+    INT             shift and go to state 9
+    ARRAY           shift and go to state 11
+    MATRIZ          shift and go to state 12
+    NOME            shift and go to state 10
+    ESCREVER        shift and go to state 13
+    ENQUANTO        shift and go to state 14
+    SE              shift and go to state 15
+
+    Program                        shift and go to state 1
+    Commands                       shift and go to state 2
+    Command                        shift and go to state 3
+    Declaration                    shift and go to state 4
+    Assign                         shift and go to state 5
+    Write                          shift and go to state 6
+    Enq                            shift and go to state 7
+    Se                             shift and go to state 8
+
+state 1
+
+    (0) S' -> Program .
+
+
+
+state 2
+
+    (1) Program -> Commands .
+
+    $end            reduce using rule 1 (Program -> Commands .)
+
+
+state 3
+
+    (3) Commands -> Command . Commands
+    (2) Commands -> .
+    (3) Commands -> . Command Commands
+    (4) Command -> . Declaration
+    (8) Command -> . Assign
+    (16) Command -> . Write
+    (18) Command -> . Enq
+    (20) Command -> . Se
+    (5) Declaration -> . INT NOME
+    (6) Declaration -> . ARRAY NOME PAA NUMBER PAF
+    (7) Declaration -> . MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+    (9) Assign -> . INT NOME EQUALS NUMBER
+    (10) Assign -> . NOME EQUALS Expression
+    (11) Assign -> . NOME PAA Expression PAF EQUALS Expression
+    (12) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> . NOME EQUALS LER
+    (14) Assign -> . NOME PAA Expression PAF EQUALS LER
+    (15) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+    (17) Write -> . ESCREVER Expression
+    (19) Enq -> . ENQUANTO Condition FAZ Commands STOPCOM
+    (21) Se -> . SE Condition FAZ Commands STOPCOM
+    (22) Se -> . SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+
+    $end            reduce using rule 2 (Commands -> .)
+    STOPCOM         reduce using rule 2 (Commands -> .)
+    SENAO           reduce using rule 2 (Commands -> .)
+    INT             shift and go to state 9
+    ARRAY           shift and go to state 11
+    MATRIZ          shift and go to state 12
+    NOME            shift and go to state 10
+    ESCREVER        shift and go to state 13
+    ENQUANTO        shift and go to state 14
+    SE              shift and go to state 15
+
+    Command                        shift and go to state 3
+    Commands                       shift and go to state 16
+    Declaration                    shift and go to state 4
+    Assign                         shift and go to state 5
+    Write                          shift and go to state 6
+    Enq                            shift and go to state 7
+    Se                             shift and go to state 8
+
+state 4
+
+    (4) Command -> Declaration .
+
+    INT             reduce using rule 4 (Command -> Declaration .)
+    ARRAY           reduce using rule 4 (Command -> Declaration .)
+    MATRIZ          reduce using rule 4 (Command -> Declaration .)
+    NOME            reduce using rule 4 (Command -> Declaration .)
+    ESCREVER        reduce using rule 4 (Command -> Declaration .)
+    ENQUANTO        reduce using rule 4 (Command -> Declaration .)
+    SE              reduce using rule 4 (Command -> Declaration .)
+    $end            reduce using rule 4 (Command -> Declaration .)
+    STOPCOM         reduce using rule 4 (Command -> Declaration .)
+    SENAO           reduce using rule 4 (Command -> Declaration .)
+
+
+state 5
+
+    (8) Command -> Assign .
+
+    INT             reduce using rule 8 (Command -> Assign .)
+    ARRAY           reduce using rule 8 (Command -> Assign .)
+    MATRIZ          reduce using rule 8 (Command -> Assign .)
+    NOME            reduce using rule 8 (Command -> Assign .)
+    ESCREVER        reduce using rule 8 (Command -> Assign .)
+    ENQUANTO        reduce using rule 8 (Command -> Assign .)
+    SE              reduce using rule 8 (Command -> Assign .)
+    $end            reduce using rule 8 (Command -> Assign .)
+    STOPCOM         reduce using rule 8 (Command -> Assign .)
+    SENAO           reduce using rule 8 (Command -> Assign .)
+
+
+state 6
+
+    (16) Command -> Write .
+
+    INT             reduce using rule 16 (Command -> Write .)
+    ARRAY           reduce using rule 16 (Command -> Write .)
+    MATRIZ          reduce using rule 16 (Command -> Write .)
+    NOME            reduce using rule 16 (Command -> Write .)
+    ESCREVER        reduce using rule 16 (Command -> Write .)
+    ENQUANTO        reduce using rule 16 (Command -> Write .)
+    SE              reduce using rule 16 (Command -> Write .)
+    $end            reduce using rule 16 (Command -> Write .)
+    STOPCOM         reduce using rule 16 (Command -> Write .)
+    SENAO           reduce using rule 16 (Command -> Write .)
+
+
+state 7
+
+    (18) Command -> Enq .
+
+    INT             reduce using rule 18 (Command -> Enq .)
+    ARRAY           reduce using rule 18 (Command -> Enq .)
+    MATRIZ          reduce using rule 18 (Command -> Enq .)
+    NOME            reduce using rule 18 (Command -> Enq .)
+    ESCREVER        reduce using rule 18 (Command -> Enq .)
+    ENQUANTO        reduce using rule 18 (Command -> Enq .)
+    SE              reduce using rule 18 (Command -> Enq .)
+    $end            reduce using rule 18 (Command -> Enq .)
+    STOPCOM         reduce using rule 18 (Command -> Enq .)
+    SENAO           reduce using rule 18 (Command -> Enq .)
+
+
+state 8
+
+    (20) Command -> Se .
+
+    INT             reduce using rule 20 (Command -> Se .)
+    ARRAY           reduce using rule 20 (Command -> Se .)
+    MATRIZ          reduce using rule 20 (Command -> Se .)
+    NOME            reduce using rule 20 (Command -> Se .)
+    ESCREVER        reduce using rule 20 (Command -> Se .)
+    ENQUANTO        reduce using rule 20 (Command -> Se .)
+    SE              reduce using rule 20 (Command -> Se .)
+    $end            reduce using rule 20 (Command -> Se .)
+    STOPCOM         reduce using rule 20 (Command -> Se .)
+    SENAO           reduce using rule 20 (Command -> Se .)
+
+
+state 9
+
+    (5) Declaration -> INT . NOME
+    (9) Assign -> INT . NOME EQUALS NUMBER
+
+    NOME            shift and go to state 17
+
+
+state 10
+
+    (10) Assign -> NOME . EQUALS Expression
+    (11) Assign -> NOME . PAA Expression PAF EQUALS Expression
+    (12) Assign -> NOME . PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> NOME . EQUALS LER
+    (14) Assign -> NOME . PAA Expression PAF EQUALS LER
+    (15) Assign -> NOME . PAA Expression PAF PAA Expression PAF EQUALS LER
+
+    EQUALS          shift and go to state 18
+    PAA             shift and go to state 19
+
+
+state 11
+
+    (6) Declaration -> ARRAY . NOME PAA NUMBER PAF
+
+    NOME            shift and go to state 20
+
+
+state 12
+
+    (7) Declaration -> MATRIZ . NOME PAA NUMBER PAF PAA NUMBER PAF
+
+    NOME            shift and go to state 21
+
+
+state 13
+
+    (17) Write -> ESCREVER . Expression
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+  ! shift/reduce conflict for NOME resolved as shift
+    INT             reduce using rule 23 (Expression -> .)
+    ARRAY           reduce using rule 23 (Expression -> .)
+    MATRIZ          reduce using rule 23 (Expression -> .)
+    ESCREVER        reduce using rule 23 (Expression -> .)
+    ENQUANTO        reduce using rule 23 (Expression -> .)
+    SE              reduce using rule 23 (Expression -> .)
+    $end            reduce using rule 23 (Expression -> .)
+    STOPCOM         reduce using rule 23 (Expression -> .)
+    SENAO           reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+  ! NOME            [ reduce using rule 23 (Expression -> .) ]
+
+    Expression                     shift and go to state 22
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 14
+
+    (19) Enq -> ENQUANTO . Condition FAZ Commands STOPCOM
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 41
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+
+    Condition                      shift and go to state 40
+
+state 15
+
+    (21) Se -> SE . Condition FAZ Commands STOPCOM
+    (22) Se -> SE . Condition FAZ Commands SENAO FAZ Commands STOPCOM
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 41
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+
+    Condition                      shift and go to state 42
+
+state 16
+
+    (3) Commands -> Command Commands .
+
+    $end            reduce using rule 3 (Commands -> Command Commands .)
+    STOPCOM         reduce using rule 3 (Commands -> Command Commands .)
+    SENAO           reduce using rule 3 (Commands -> Command Commands .)
+
+
+state 17
+
+    (5) Declaration -> INT NOME .
+    (9) Assign -> INT NOME . EQUALS NUMBER
+
+    INT             reduce using rule 5 (Declaration -> INT NOME .)
+    ARRAY           reduce using rule 5 (Declaration -> INT NOME .)
+    MATRIZ          reduce using rule 5 (Declaration -> INT NOME .)
+    NOME            reduce using rule 5 (Declaration -> INT NOME .)
+    ESCREVER        reduce using rule 5 (Declaration -> INT NOME .)
+    ENQUANTO        reduce using rule 5 (Declaration -> INT NOME .)
+    SE              reduce using rule 5 (Declaration -> INT NOME .)
+    $end            reduce using rule 5 (Declaration -> INT NOME .)
+    STOPCOM         reduce using rule 5 (Declaration -> INT NOME .)
+    SENAO           reduce using rule 5 (Declaration -> INT NOME .)
+    EQUALS          shift and go to state 43
+
+
+state 18
+
+    (10) Assign -> NOME EQUALS . Expression
+    (13) Assign -> NOME EQUALS . LER
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+  ! shift/reduce conflict for NOME resolved as shift
+    LER             shift and go to state 45
+    INT             reduce using rule 23 (Expression -> .)
+    ARRAY           reduce using rule 23 (Expression -> .)
+    MATRIZ          reduce using rule 23 (Expression -> .)
+    ESCREVER        reduce using rule 23 (Expression -> .)
+    ENQUANTO        reduce using rule 23 (Expression -> .)
+    SE              reduce using rule 23 (Expression -> .)
+    $end            reduce using rule 23 (Expression -> .)
+    STOPCOM         reduce using rule 23 (Expression -> .)
+    SENAO           reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+  ! NOME            [ reduce using rule 23 (Expression -> .) ]
+
+    Expression                     shift and go to state 44
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 19
+
+    (11) Assign -> NOME PAA . Expression PAF EQUALS Expression
+    (12) Assign -> NOME PAA . Expression PAF PAA Expression PAF EQUALS Expression
+    (14) Assign -> NOME PAA . Expression PAF EQUALS LER
+    (15) Assign -> NOME PAA . Expression PAF PAA Expression PAF EQUALS LER
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PAF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 46
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 20
+
+    (6) Declaration -> ARRAY NOME . PAA NUMBER PAF
+
+    PAA             shift and go to state 47
+
+
+state 21
+
+    (7) Declaration -> MATRIZ NOME . PAA NUMBER PAF PAA NUMBER PAF
+
+    PAA             shift and go to state 48
+
+
+state 22
+
+    (17) Write -> ESCREVER Expression .
+
+    INT             reduce using rule 17 (Write -> ESCREVER Expression .)
+    ARRAY           reduce using rule 17 (Write -> ESCREVER Expression .)
+    MATRIZ          reduce using rule 17 (Write -> ESCREVER Expression .)
+    NOME            reduce using rule 17 (Write -> ESCREVER Expression .)
+    ESCREVER        reduce using rule 17 (Write -> ESCREVER Expression .)
+    ENQUANTO        reduce using rule 17 (Write -> ESCREVER Expression .)
+    SE              reduce using rule 17 (Write -> ESCREVER Expression .)
+    $end            reduce using rule 17 (Write -> ESCREVER Expression .)
+    STOPCOM         reduce using rule 17 (Write -> ESCREVER Expression .)
+    SENAO           reduce using rule 17 (Write -> ESCREVER Expression .)
+
+
+state 23
+
+    (24) Expression -> NUMBER .
+
+    INT             reduce using rule 24 (Expression -> NUMBER .)
+    ARRAY           reduce using rule 24 (Expression -> NUMBER .)
+    MATRIZ          reduce using rule 24 (Expression -> NUMBER .)
+    NOME            reduce using rule 24 (Expression -> NUMBER .)
+    ESCREVER        reduce using rule 24 (Expression -> NUMBER .)
+    ENQUANTO        reduce using rule 24 (Expression -> NUMBER .)
+    SE              reduce using rule 24 (Expression -> NUMBER .)
+    $end            reduce using rule 24 (Expression -> NUMBER .)
+    STOPCOM         reduce using rule 24 (Expression -> NUMBER .)
+    SENAO           reduce using rule 24 (Expression -> NUMBER .)
+    PAF             reduce using rule 24 (Expression -> NUMBER .)
+    PCF             reduce using rule 24 (Expression -> NUMBER .)
+    VIRG            reduce using rule 24 (Expression -> NUMBER .)
+
+
+state 24
+
+    (25) Expression -> PCA . Expression PCF
+    (31) Condition -> PCA . Condition PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 49
+    Condition                      shift and go to state 50
+    Var                            shift and go to state 30
+
+state 25
+
+    (26) Expression -> PLUS . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 51
+
+
+state 26
+
+    (27) Expression -> MINUS . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 52
+
+
+state 27
+
+    (28) Expression -> TIMES . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 53
+
+
+state 28
+
+    (29) Expression -> DIVIDE . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 54
+
+
+state 29
+
+    (30) Expression -> Condition .
+
+    INT             reduce using rule 30 (Expression -> Condition .)
+    ARRAY           reduce using rule 30 (Expression -> Condition .)
+    MATRIZ          reduce using rule 30 (Expression -> Condition .)
+    NOME            reduce using rule 30 (Expression -> Condition .)
+    ESCREVER        reduce using rule 30 (Expression -> Condition .)
+    ENQUANTO        reduce using rule 30 (Expression -> Condition .)
+    SE              reduce using rule 30 (Expression -> Condition .)
+    $end            reduce using rule 30 (Expression -> Condition .)
+    STOPCOM         reduce using rule 30 (Expression -> Condition .)
+    SENAO           reduce using rule 30 (Expression -> Condition .)
+    PAF             reduce using rule 30 (Expression -> Condition .)
+    VIRG            reduce using rule 30 (Expression -> Condition .)
+    PCF             reduce using rule 30 (Expression -> Condition .)
+
+
+state 30
+
+    (40) Expression -> Var .
+
+    INT             reduce using rule 40 (Expression -> Var .)
+    ARRAY           reduce using rule 40 (Expression -> Var .)
+    MATRIZ          reduce using rule 40 (Expression -> Var .)
+    NOME            reduce using rule 40 (Expression -> Var .)
+    ESCREVER        reduce using rule 40 (Expression -> Var .)
+    ENQUANTO        reduce using rule 40 (Expression -> Var .)
+    SE              reduce using rule 40 (Expression -> Var .)
+    $end            reduce using rule 40 (Expression -> Var .)
+    STOPCOM         reduce using rule 40 (Expression -> Var .)
+    SENAO           reduce using rule 40 (Expression -> Var .)
+    PAF             reduce using rule 40 (Expression -> Var .)
+    PCF             reduce using rule 40 (Expression -> Var .)
+    VIRG            reduce using rule 40 (Expression -> Var .)
+
+
+state 31
+
+    (32) Condition -> EQEQ . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 55
+
+
+state 32
+
+    (33) Condition -> NEQ . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 56
+
+
+state 33
+
+    (34) Condition -> GEQ . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 57
+
+
+state 34
+
+    (35) Condition -> LEQ . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 58
+
+
+state 35
+
+    (36) Condition -> BIGGER . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 59
+
+
+state 36
+
+    (37) Condition -> MINOR . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 60
+
+
+state 37
+
+    (38) Condition -> E . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 61
+
+
+state 38
+
+    (39) Condition -> OU . PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 62
+
+
+state 39
+
+    (41) Var -> NOME .
+    (42) Var -> NOME . PAA Expression PAF
+    (43) Var -> NOME . PAA Expression PAF PAA Expression PAF
+
+    INT             reduce using rule 41 (Var -> NOME .)
+    ARRAY           reduce using rule 41 (Var -> NOME .)
+    MATRIZ          reduce using rule 41 (Var -> NOME .)
+    NOME            reduce using rule 41 (Var -> NOME .)
+    ESCREVER        reduce using rule 41 (Var -> NOME .)
+    ENQUANTO        reduce using rule 41 (Var -> NOME .)
+    SE              reduce using rule 41 (Var -> NOME .)
+    $end            reduce using rule 41 (Var -> NOME .)
+    STOPCOM         reduce using rule 41 (Var -> NOME .)
+    SENAO           reduce using rule 41 (Var -> NOME .)
+    PAF             reduce using rule 41 (Var -> NOME .)
+    PCF             reduce using rule 41 (Var -> NOME .)
+    VIRG            reduce using rule 41 (Var -> NOME .)
+    PAA             shift and go to state 63
+
+
+state 40
+
+    (19) Enq -> ENQUANTO Condition . FAZ Commands STOPCOM
+
+    FAZ             shift and go to state 64
+
+
+state 41
+
+    (31) Condition -> PCA . Condition PCF
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+
+    PCA             shift and go to state 41
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+
+    Condition                      shift and go to state 65
+
+state 42
+
+    (21) Se -> SE Condition . FAZ Commands STOPCOM
+    (22) Se -> SE Condition . FAZ Commands SENAO FAZ Commands STOPCOM
+
+    FAZ             shift and go to state 66
+
+
+state 43
+
+    (9) Assign -> INT NOME EQUALS . NUMBER
+
+    NUMBER          shift and go to state 67
+
+
+state 44
+
+    (10) Assign -> NOME EQUALS Expression .
+
+    INT             reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    ARRAY           reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    MATRIZ          reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    NOME            reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    ESCREVER        reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    ENQUANTO        reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    SE              reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    $end            reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    STOPCOM         reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+    SENAO           reduce using rule 10 (Assign -> NOME EQUALS Expression .)
+
+
+state 45
+
+    (13) Assign -> NOME EQUALS LER .
+
+    INT             reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    ARRAY           reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    MATRIZ          reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    NOME            reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    ESCREVER        reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    ENQUANTO        reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    SE              reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    $end            reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    STOPCOM         reduce using rule 13 (Assign -> NOME EQUALS LER .)
+    SENAO           reduce using rule 13 (Assign -> NOME EQUALS LER .)
+
+
+state 46
+
+    (11) Assign -> NOME PAA Expression . PAF EQUALS Expression
+    (12) Assign -> NOME PAA Expression . PAF PAA Expression PAF EQUALS Expression
+    (14) Assign -> NOME PAA Expression . PAF EQUALS LER
+    (15) Assign -> NOME PAA Expression . PAF PAA Expression PAF EQUALS LER
+
+    PAF             shift and go to state 68
+
+
+state 47
+
+    (6) Declaration -> ARRAY NOME PAA . NUMBER PAF
+
+    NUMBER          shift and go to state 69
+
+
+state 48
+
+    (7) Declaration -> MATRIZ NOME PAA . NUMBER PAF PAA NUMBER PAF
+
+    NUMBER          shift and go to state 70
+
+
+state 49
+
+    (25) Expression -> PCA Expression . PCF
+
+    PCF             shift and go to state 71
+
+
+state 50
+
+    (31) Condition -> PCA Condition . PCF
+    (30) Expression -> Condition .
+
+  ! shift/reduce conflict for PCF resolved as shift
+    PCF             shift and go to state 72
+
+  ! PCF             [ reduce using rule 30 (Expression -> Condition .) ]
+
+
+state 51
+
+    (26) Expression -> PLUS PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 73
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 52
+
+    (27) Expression -> MINUS PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 74
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 53
+
+    (28) Expression -> TIMES PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 75
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 54
+
+    (29) Expression -> DIVIDE PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 76
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 55
+
+    (32) Condition -> EQEQ PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 77
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 56
+
+    (33) Condition -> NEQ PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 78
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 57
+
+    (34) Condition -> GEQ PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 79
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 58
+
+    (35) Condition -> LEQ PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 80
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 59
+
+    (36) Condition -> BIGGER PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 81
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 60
+
+    (37) Condition -> MINOR PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 82
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 61
+
+    (38) Condition -> E PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 83
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 62
+
+    (39) Condition -> OU PCA . Expression VIRG Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    VIRG            reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 84
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 63
+
+    (42) Var -> NOME PAA . Expression PAF
+    (43) Var -> NOME PAA . Expression PAF PAA Expression PAF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PAF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 85
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 64
+
+    (19) Enq -> ENQUANTO Condition FAZ . Commands STOPCOM
+    (2) Commands -> .
+    (3) Commands -> . Command Commands
+    (4) Command -> . Declaration
+    (8) Command -> . Assign
+    (16) Command -> . Write
+    (18) Command -> . Enq
+    (20) Command -> . Se
+    (5) Declaration -> . INT NOME
+    (6) Declaration -> . ARRAY NOME PAA NUMBER PAF
+    (7) Declaration -> . MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+    (9) Assign -> . INT NOME EQUALS NUMBER
+    (10) Assign -> . NOME EQUALS Expression
+    (11) Assign -> . NOME PAA Expression PAF EQUALS Expression
+    (12) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> . NOME EQUALS LER
+    (14) Assign -> . NOME PAA Expression PAF EQUALS LER
+    (15) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+    (17) Write -> . ESCREVER Expression
+    (19) Enq -> . ENQUANTO Condition FAZ Commands STOPCOM
+    (21) Se -> . SE Condition FAZ Commands STOPCOM
+    (22) Se -> . SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+
+    STOPCOM         reduce using rule 2 (Commands -> .)
+    INT             shift and go to state 9
+    ARRAY           shift and go to state 11
+    MATRIZ          shift and go to state 12
+    NOME            shift and go to state 10
+    ESCREVER        shift and go to state 13
+    ENQUANTO        shift and go to state 14
+    SE              shift and go to state 15
+
+    Commands                       shift and go to state 86
+    Command                        shift and go to state 3
+    Declaration                    shift and go to state 4
+    Assign                         shift and go to state 5
+    Write                          shift and go to state 6
+    Enq                            shift and go to state 7
+    Se                             shift and go to state 8
+
+state 65
+
+    (31) Condition -> PCA Condition . PCF
+
+    PCF             shift and go to state 72
+
+
+state 66
+
+    (21) Se -> SE Condition FAZ . Commands STOPCOM
+    (22) Se -> SE Condition FAZ . Commands SENAO FAZ Commands STOPCOM
+    (2) Commands -> .
+    (3) Commands -> . Command Commands
+    (4) Command -> . Declaration
+    (8) Command -> . Assign
+    (16) Command -> . Write
+    (18) Command -> . Enq
+    (20) Command -> . Se
+    (5) Declaration -> . INT NOME
+    (6) Declaration -> . ARRAY NOME PAA NUMBER PAF
+    (7) Declaration -> . MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+    (9) Assign -> . INT NOME EQUALS NUMBER
+    (10) Assign -> . NOME EQUALS Expression
+    (11) Assign -> . NOME PAA Expression PAF EQUALS Expression
+    (12) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> . NOME EQUALS LER
+    (14) Assign -> . NOME PAA Expression PAF EQUALS LER
+    (15) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+    (17) Write -> . ESCREVER Expression
+    (19) Enq -> . ENQUANTO Condition FAZ Commands STOPCOM
+    (21) Se -> . SE Condition FAZ Commands STOPCOM
+    (22) Se -> . SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+
+    STOPCOM         reduce using rule 2 (Commands -> .)
+    SENAO           reduce using rule 2 (Commands -> .)
+    INT             shift and go to state 9
+    ARRAY           shift and go to state 11
+    MATRIZ          shift and go to state 12
+    NOME            shift and go to state 10
+    ESCREVER        shift and go to state 13
+    ENQUANTO        shift and go to state 14
+    SE              shift and go to state 15
+
+    Commands                       shift and go to state 87
+    Command                        shift and go to state 3
+    Declaration                    shift and go to state 4
+    Assign                         shift and go to state 5
+    Write                          shift and go to state 6
+    Enq                            shift and go to state 7
+    Se                             shift and go to state 8
+
+state 67
+
+    (9) Assign -> INT NOME EQUALS NUMBER .
+
+    INT             reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    ARRAY           reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    MATRIZ          reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    NOME            reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    ESCREVER        reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    ENQUANTO        reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    SE              reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    $end            reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    STOPCOM         reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+    SENAO           reduce using rule 9 (Assign -> INT NOME EQUALS NUMBER .)
+
+
+state 68
+
+    (11) Assign -> NOME PAA Expression PAF . EQUALS Expression
+    (12) Assign -> NOME PAA Expression PAF . PAA Expression PAF EQUALS Expression
+    (14) Assign -> NOME PAA Expression PAF . EQUALS LER
+    (15) Assign -> NOME PAA Expression PAF . PAA Expression PAF EQUALS LER
+
+    EQUALS          shift and go to state 89
+    PAA             shift and go to state 88
+
+
+state 69
+
+    (6) Declaration -> ARRAY NOME PAA NUMBER . PAF
+
+    PAF             shift and go to state 90
+
+
+state 70
+
+    (7) Declaration -> MATRIZ NOME PAA NUMBER . PAF PAA NUMBER PAF
+
+    PAF             shift and go to state 91
+
+
+state 71
+
+    (25) Expression -> PCA Expression PCF .
+
+    INT             reduce using rule 25 (Expression -> PCA Expression PCF .)
+    ARRAY           reduce using rule 25 (Expression -> PCA Expression PCF .)
+    MATRIZ          reduce using rule 25 (Expression -> PCA Expression PCF .)
+    NOME            reduce using rule 25 (Expression -> PCA Expression PCF .)
+    ESCREVER        reduce using rule 25 (Expression -> PCA Expression PCF .)
+    ENQUANTO        reduce using rule 25 (Expression -> PCA Expression PCF .)
+    SE              reduce using rule 25 (Expression -> PCA Expression PCF .)
+    $end            reduce using rule 25 (Expression -> PCA Expression PCF .)
+    STOPCOM         reduce using rule 25 (Expression -> PCA Expression PCF .)
+    SENAO           reduce using rule 25 (Expression -> PCA Expression PCF .)
+    PAF             reduce using rule 25 (Expression -> PCA Expression PCF .)
+    PCF             reduce using rule 25 (Expression -> PCA Expression PCF .)
+    VIRG            reduce using rule 25 (Expression -> PCA Expression PCF .)
+
+
+state 72
+
+    (31) Condition -> PCA Condition PCF .
+
+    INT             reduce using rule 31 (Condition -> PCA Condition PCF .)
+    ARRAY           reduce using rule 31 (Condition -> PCA Condition PCF .)
+    MATRIZ          reduce using rule 31 (Condition -> PCA Condition PCF .)
+    NOME            reduce using rule 31 (Condition -> PCA Condition PCF .)
+    ESCREVER        reduce using rule 31 (Condition -> PCA Condition PCF .)
+    ENQUANTO        reduce using rule 31 (Condition -> PCA Condition PCF .)
+    SE              reduce using rule 31 (Condition -> PCA Condition PCF .)
+    $end            reduce using rule 31 (Condition -> PCA Condition PCF .)
+    STOPCOM         reduce using rule 31 (Condition -> PCA Condition PCF .)
+    SENAO           reduce using rule 31 (Condition -> PCA Condition PCF .)
+    FAZ             reduce using rule 31 (Condition -> PCA Condition PCF .)
+    PAF             reduce using rule 31 (Condition -> PCA Condition PCF .)
+    PCF             reduce using rule 31 (Condition -> PCA Condition PCF .)
+    VIRG            reduce using rule 31 (Condition -> PCA Condition PCF .)
+
+
+state 73
+
+    (26) Expression -> PLUS PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 92
+
+
+state 74
+
+    (27) Expression -> MINUS PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 93
+
+
+state 75
+
+    (28) Expression -> TIMES PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 94
+
+
+state 76
+
+    (29) Expression -> DIVIDE PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 95
+
+
+state 77
+
+    (32) Condition -> EQEQ PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 96
+
+
+state 78
+
+    (33) Condition -> NEQ PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 97
+
+
+state 79
+
+    (34) Condition -> GEQ PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 98
+
+
+state 80
+
+    (35) Condition -> LEQ PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 99
+
+
+state 81
+
+    (36) Condition -> BIGGER PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 100
+
+
+state 82
+
+    (37) Condition -> MINOR PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 101
+
+
+state 83
+
+    (38) Condition -> E PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 102
+
+
+state 84
+
+    (39) Condition -> OU PCA Expression . VIRG Expression PCF
+
+    VIRG            shift and go to state 103
+
+
+state 85
+
+    (42) Var -> NOME PAA Expression . PAF
+    (43) Var -> NOME PAA Expression . PAF PAA Expression PAF
+
+    PAF             shift and go to state 104
+
+
+state 86
+
+    (19) Enq -> ENQUANTO Condition FAZ Commands . STOPCOM
+
+    STOPCOM         shift and go to state 105
+
+
+state 87
+
+    (21) Se -> SE Condition FAZ Commands . STOPCOM
+    (22) Se -> SE Condition FAZ Commands . SENAO FAZ Commands STOPCOM
+
+    STOPCOM         shift and go to state 106
+    SENAO           shift and go to state 107
+
+
+state 88
+
+    (12) Assign -> NOME PAA Expression PAF PAA . Expression PAF EQUALS Expression
+    (15) Assign -> NOME PAA Expression PAF PAA . Expression PAF EQUALS LER
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PAF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 108
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 89
+
+    (11) Assign -> NOME PAA Expression PAF EQUALS . Expression
+    (14) Assign -> NOME PAA Expression PAF EQUALS . LER
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+  ! shift/reduce conflict for NOME resolved as shift
+    LER             shift and go to state 110
+    INT             reduce using rule 23 (Expression -> .)
+    ARRAY           reduce using rule 23 (Expression -> .)
+    MATRIZ          reduce using rule 23 (Expression -> .)
+    ESCREVER        reduce using rule 23 (Expression -> .)
+    ENQUANTO        reduce using rule 23 (Expression -> .)
+    SE              reduce using rule 23 (Expression -> .)
+    $end            reduce using rule 23 (Expression -> .)
+    STOPCOM         reduce using rule 23 (Expression -> .)
+    SENAO           reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+  ! NOME            [ reduce using rule 23 (Expression -> .) ]
+
+    Expression                     shift and go to state 109
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 90
+
+    (6) Declaration -> ARRAY NOME PAA NUMBER PAF .
+
+    INT             reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    ARRAY           reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    MATRIZ          reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    NOME            reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    ESCREVER        reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    ENQUANTO        reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    SE              reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    $end            reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    STOPCOM         reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+    SENAO           reduce using rule 6 (Declaration -> ARRAY NOME PAA NUMBER PAF .)
+
+
+state 91
+
+    (7) Declaration -> MATRIZ NOME PAA NUMBER PAF . PAA NUMBER PAF
+
+    PAA             shift and go to state 111
+
+
+state 92
+
+    (26) Expression -> PLUS PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 112
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 93
+
+    (27) Expression -> MINUS PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 113
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 94
+
+    (28) Expression -> TIMES PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 114
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 95
+
+    (29) Expression -> DIVIDE PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 115
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 96
+
+    (32) Condition -> EQEQ PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 116
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 97
+
+    (33) Condition -> NEQ PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 117
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 98
+
+    (34) Condition -> GEQ PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 118
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 99
+
+    (35) Condition -> LEQ PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 119
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 100
+
+    (36) Condition -> BIGGER PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 120
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 101
+
+    (37) Condition -> MINOR PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 121
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 102
+
+    (38) Condition -> E PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 122
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 103
+
+    (39) Condition -> OU PCA Expression VIRG . Expression PCF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PCF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 123
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 104
+
+    (42) Var -> NOME PAA Expression PAF .
+    (43) Var -> NOME PAA Expression PAF . PAA Expression PAF
+
+    INT             reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    ARRAY           reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    MATRIZ          reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    NOME            reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    ESCREVER        reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    ENQUANTO        reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    SE              reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    $end            reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    STOPCOM         reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    SENAO           reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    PAF             reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    PCF             reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    VIRG            reduce using rule 42 (Var -> NOME PAA Expression PAF .)
+    PAA             shift and go to state 124
+
+
+state 105
+
+    (19) Enq -> ENQUANTO Condition FAZ Commands STOPCOM .
+
+    INT             reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    ARRAY           reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    MATRIZ          reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    NOME            reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    ESCREVER        reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    ENQUANTO        reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    SE              reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    $end            reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    STOPCOM         reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+    SENAO           reduce using rule 19 (Enq -> ENQUANTO Condition FAZ Commands STOPCOM .)
+
+
+state 106
+
+    (21) Se -> SE Condition FAZ Commands STOPCOM .
+
+    INT             reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    ARRAY           reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    MATRIZ          reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    NOME            reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    ESCREVER        reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    ENQUANTO        reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    SE              reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    $end            reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    STOPCOM         reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+    SENAO           reduce using rule 21 (Se -> SE Condition FAZ Commands STOPCOM .)
+
+
+state 107
+
+    (22) Se -> SE Condition FAZ Commands SENAO . FAZ Commands STOPCOM
+
+    FAZ             shift and go to state 125
+
+
+state 108
+
+    (12) Assign -> NOME PAA Expression PAF PAA Expression . PAF EQUALS Expression
+    (15) Assign -> NOME PAA Expression PAF PAA Expression . PAF EQUALS LER
+
+    PAF             shift and go to state 126
+
+
+state 109
+
+    (11) Assign -> NOME PAA Expression PAF EQUALS Expression .
+
+    INT             reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    ARRAY           reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    MATRIZ          reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    NOME            reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    ESCREVER        reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    ENQUANTO        reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    SE              reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    $end            reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    STOPCOM         reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+    SENAO           reduce using rule 11 (Assign -> NOME PAA Expression PAF EQUALS Expression .)
+
+
+state 110
+
+    (14) Assign -> NOME PAA Expression PAF EQUALS LER .
+
+    INT             reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    ARRAY           reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    MATRIZ          reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    NOME            reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    ESCREVER        reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    ENQUANTO        reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    SE              reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    $end            reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    STOPCOM         reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+    SENAO           reduce using rule 14 (Assign -> NOME PAA Expression PAF EQUALS LER .)
+
+
+state 111
+
+    (7) Declaration -> MATRIZ NOME PAA NUMBER PAF PAA . NUMBER PAF
+
+    NUMBER          shift and go to state 127
+
+
+state 112
+
+    (26) Expression -> PLUS PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 128
+
+
+state 113
+
+    (27) Expression -> MINUS PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 129
+
+
+state 114
+
+    (28) Expression -> TIMES PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 130
+
+
+state 115
+
+    (29) Expression -> DIVIDE PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 131
+
+
+state 116
+
+    (32) Condition -> EQEQ PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 132
+
+
+state 117
+
+    (33) Condition -> NEQ PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 133
+
+
+state 118
+
+    (34) Condition -> GEQ PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 134
+
+
+state 119
+
+    (35) Condition -> LEQ PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 135
+
+
+state 120
+
+    (36) Condition -> BIGGER PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 136
+
+
+state 121
+
+    (37) Condition -> MINOR PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 137
+
+
+state 122
+
+    (38) Condition -> E PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 138
+
+
+state 123
+
+    (39) Condition -> OU PCA Expression VIRG Expression . PCF
+
+    PCF             shift and go to state 139
+
+
+state 124
+
+    (43) Var -> NOME PAA Expression PAF PAA . Expression PAF
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+    PAF             reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+    Expression                     shift and go to state 140
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 125
+
+    (22) Se -> SE Condition FAZ Commands SENAO FAZ . Commands STOPCOM
+    (2) Commands -> .
+    (3) Commands -> . Command Commands
+    (4) Command -> . Declaration
+    (8) Command -> . Assign
+    (16) Command -> . Write
+    (18) Command -> . Enq
+    (20) Command -> . Se
+    (5) Declaration -> . INT NOME
+    (6) Declaration -> . ARRAY NOME PAA NUMBER PAF
+    (7) Declaration -> . MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF
+    (9) Assign -> . INT NOME EQUALS NUMBER
+    (10) Assign -> . NOME EQUALS Expression
+    (11) Assign -> . NOME PAA Expression PAF EQUALS Expression
+    (12) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS Expression
+    (13) Assign -> . NOME EQUALS LER
+    (14) Assign -> . NOME PAA Expression PAF EQUALS LER
+    (15) Assign -> . NOME PAA Expression PAF PAA Expression PAF EQUALS LER
+    (17) Write -> . ESCREVER Expression
+    (19) Enq -> . ENQUANTO Condition FAZ Commands STOPCOM
+    (21) Se -> . SE Condition FAZ Commands STOPCOM
+    (22) Se -> . SE Condition FAZ Commands SENAO FAZ Commands STOPCOM
+
+    STOPCOM         reduce using rule 2 (Commands -> .)
+    INT             shift and go to state 9
+    ARRAY           shift and go to state 11
+    MATRIZ          shift and go to state 12
+    NOME            shift and go to state 10
+    ESCREVER        shift and go to state 13
+    ENQUANTO        shift and go to state 14
+    SE              shift and go to state 15
+
+    Commands                       shift and go to state 141
+    Command                        shift and go to state 3
+    Declaration                    shift and go to state 4
+    Assign                         shift and go to state 5
+    Write                          shift and go to state 6
+    Enq                            shift and go to state 7
+    Se                             shift and go to state 8
+
+state 126
+
+    (12) Assign -> NOME PAA Expression PAF PAA Expression PAF . EQUALS Expression
+    (15) Assign -> NOME PAA Expression PAF PAA Expression PAF . EQUALS LER
+
+    EQUALS          shift and go to state 142
+
+
+state 127
+
+    (7) Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER . PAF
+
+    PAF             shift and go to state 143
+
+
+state 128
+
+    (26) Expression -> PLUS PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 26 (Expression -> PLUS PCA Expression VIRG Expression PCF .)
+
+
+state 129
+
+    (27) Expression -> MINUS PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 27 (Expression -> MINUS PCA Expression VIRG Expression PCF .)
+
+
+state 130
+
+    (28) Expression -> TIMES PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 28 (Expression -> TIMES PCA Expression VIRG Expression PCF .)
+
+
+state 131
+
+    (29) Expression -> DIVIDE PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 29 (Expression -> DIVIDE PCA Expression VIRG Expression PCF .)
+
+
+state 132
+
+    (32) Condition -> EQEQ PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 32 (Condition -> EQEQ PCA Expression VIRG Expression PCF .)
+
+
+state 133
+
+    (33) Condition -> NEQ PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 33 (Condition -> NEQ PCA Expression VIRG Expression PCF .)
+
+
+state 134
+
+    (34) Condition -> GEQ PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 34 (Condition -> GEQ PCA Expression VIRG Expression PCF .)
+
+
+state 135
+
+    (35) Condition -> LEQ PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 35 (Condition -> LEQ PCA Expression VIRG Expression PCF .)
+
+
+state 136
+
+    (36) Condition -> BIGGER PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 36 (Condition -> BIGGER PCA Expression VIRG Expression PCF .)
+
+
+state 137
+
+    (37) Condition -> MINOR PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 37 (Condition -> MINOR PCA Expression VIRG Expression PCF .)
+
+
+state 138
+
+    (38) Condition -> E PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 38 (Condition -> E PCA Expression VIRG Expression PCF .)
+
+
+state 139
+
+    (39) Condition -> OU PCA Expression VIRG Expression PCF .
+
+    INT             reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    ARRAY           reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    MATRIZ          reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    NOME            reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    ESCREVER        reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    ENQUANTO        reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    SE              reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    $end            reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    STOPCOM         reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    SENAO           reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    FAZ             reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    PAF             reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    PCF             reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+    VIRG            reduce using rule 39 (Condition -> OU PCA Expression VIRG Expression PCF .)
+
+
+state 140
+
+    (43) Var -> NOME PAA Expression PAF PAA Expression . PAF
+
+    PAF             shift and go to state 144
+
+
+state 141
+
+    (22) Se -> SE Condition FAZ Commands SENAO FAZ Commands . STOPCOM
+
+    STOPCOM         shift and go to state 145
+
+
+state 142
+
+    (12) Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS . Expression
+    (15) Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS . LER
+    (23) Expression -> .
+    (24) Expression -> . NUMBER
+    (25) Expression -> . PCA Expression PCF
+    (26) Expression -> . PLUS PCA Expression VIRG Expression PCF
+    (27) Expression -> . MINUS PCA Expression VIRG Expression PCF
+    (28) Expression -> . TIMES PCA Expression VIRG Expression PCF
+    (29) Expression -> . DIVIDE PCA Expression VIRG Expression PCF
+    (30) Expression -> . Condition
+    (40) Expression -> . Var
+    (31) Condition -> . PCA Condition PCF
+    (32) Condition -> . EQEQ PCA Expression VIRG Expression PCF
+    (33) Condition -> . NEQ PCA Expression VIRG Expression PCF
+    (34) Condition -> . GEQ PCA Expression VIRG Expression PCF
+    (35) Condition -> . LEQ PCA Expression VIRG Expression PCF
+    (36) Condition -> . BIGGER PCA Expression VIRG Expression PCF
+    (37) Condition -> . MINOR PCA Expression VIRG Expression PCF
+    (38) Condition -> . E PCA Expression VIRG Expression PCF
+    (39) Condition -> . OU PCA Expression VIRG Expression PCF
+    (41) Var -> . NOME
+    (42) Var -> . NOME PAA Expression PAF
+    (43) Var -> . NOME PAA Expression PAF PAA Expression PAF
+
+  ! shift/reduce conflict for NOME resolved as shift
+    LER             shift and go to state 147
+    INT             reduce using rule 23 (Expression -> .)
+    ARRAY           reduce using rule 23 (Expression -> .)
+    MATRIZ          reduce using rule 23 (Expression -> .)
+    ESCREVER        reduce using rule 23 (Expression -> .)
+    ENQUANTO        reduce using rule 23 (Expression -> .)
+    SE              reduce using rule 23 (Expression -> .)
+    $end            reduce using rule 23 (Expression -> .)
+    STOPCOM         reduce using rule 23 (Expression -> .)
+    SENAO           reduce using rule 23 (Expression -> .)
+    NUMBER          shift and go to state 23
+    PCA             shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    TIMES           shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQEQ            shift and go to state 31
+    NEQ             shift and go to state 32
+    GEQ             shift and go to state 33
+    LEQ             shift and go to state 34
+    BIGGER          shift and go to state 35
+    MINOR           shift and go to state 36
+    E               shift and go to state 37
+    OU              shift and go to state 38
+    NOME            shift and go to state 39
+
+  ! NOME            [ reduce using rule 23 (Expression -> .) ]
+
+    Expression                     shift and go to state 146
+    Condition                      shift and go to state 29
+    Var                            shift and go to state 30
+
+state 143
+
+    (7) Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .
+
+    INT             reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    ARRAY           reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    MATRIZ          reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    NOME            reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    ESCREVER        reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    ENQUANTO        reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    SE              reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    $end            reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    STOPCOM         reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+    SENAO           reduce using rule 7 (Declaration -> MATRIZ NOME PAA NUMBER PAF PAA NUMBER PAF .)
+
+
+state 144
+
+    (43) Var -> NOME PAA Expression PAF PAA Expression PAF .
+
+    INT             reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    ARRAY           reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    MATRIZ          reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    NOME            reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    ESCREVER        reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    ENQUANTO        reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    SE              reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    $end            reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    STOPCOM         reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    SENAO           reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    PAF             reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    PCF             reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+    VIRG            reduce using rule 43 (Var -> NOME PAA Expression PAF PAA Expression PAF .)
+
+
+state 145
+
+    (22) Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .
+
+    INT             reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    ARRAY           reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    MATRIZ          reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    NOME            reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    ESCREVER        reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    ENQUANTO        reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    SE              reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    $end            reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    STOPCOM         reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+    SENAO           reduce using rule 22 (Se -> SE Condition FAZ Commands SENAO FAZ Commands STOPCOM .)
+
+
+state 146
+
+    (12) Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .
+
+    INT             reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    ARRAY           reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    MATRIZ          reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    NOME            reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    ESCREVER        reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    ENQUANTO        reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    SE              reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    $end            reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    STOPCOM         reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+    SENAO           reduce using rule 12 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS Expression .)
+
+
+state 147
+
+    (15) Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .
+
+    INT             reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    ARRAY           reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    MATRIZ          reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    NOME            reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    ESCREVER        reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    ENQUANTO        reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    SE              reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    $end            reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    STOPCOM         reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+    SENAO           reduce using rule 15 (Assign -> NOME PAA Expression PAF PAA Expression PAF EQUALS LER .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for NOME in state 13 resolved as shift
+WARNING: shift/reduce conflict for NOME in state 18 resolved as shift
+WARNING: shift/reduce conflict for PCF in state 50 resolved as shift
+WARNING: shift/reduce conflict for NOME in state 89 resolved as shift
+WARNING: shift/reduce conflict for NOME in state 142 resolved as shift

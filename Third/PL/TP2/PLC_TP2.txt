@@ -1,0 +1,37 @@
+ESte projeto é referente ao TP2 de PLC.
+É nos pedido para contruir, primeiramente, uma linguagem que respeite o paradigma imperativo.
+Esta linguagem terá o nome de li_PLC (abreviatura de linguagem imperativa de PLC); 
+deverá pelo menos:
+    - declarar variáveis atómicas do tipo inteiro, com os quais se podem realizar as habituais operações aritmétricas,
+      relacionais e lógicas;
+    - efetuar instruções algorítmicas básicas como a atribuição do valor de expressões numéricas a variáveis;
+    - ler do standard input e escrever no standard output;
+    - efetuar instruções de seleção para controlo do fluxo de execução;
+    - efetuar instruções de repetição (cíclicas) para o controlo do fluxo de execução, permitindo o seu aninhamento.
+      Implementar pelo menos:
+        while-do
+        repeat-until
+        for-do
+    - declarar e manusear variáveis estruturadas do tipo array (e/ou matriz(es)) de inteiros, em relação aos quais
+      é apenas permitida a operação de indexação(índice inteiro);
+    - definir e invocar subprogramas sem parâmetros que possam retornar um resultado inteiro.
+
+Toda esta lingua baseia-se/é inspirada na lingua de programação C, respetitando o paradigma imperativo.
+
+A ideia inicial será:
+- Todas as operaçõs aritmétricas, relacionais e lógicas serão representadas pelos símbolos matemáticos destas;
+- Existirão as funçoẽs básicas de condição, algorítmos cíclicos, escrita e leitura (standard input e utput):
+  - while -> ENQUANTO; 
+  - for -> PARA;
+  - if -> SE;
+  - else -> SENAO;
+  - else if -> SENAOSE;
+  - && -> E;
+  - || -> OU;
+  - printf -> ESCREVER;
+  - scanf -> LER;
+- Inicialmente as atribuições dos valores para variáveos seria do tipo int, no entanto, implementamos a opção tipo float;
+- No que toca aos arrays temos duas diferentes implementações, de 1 dimensão (arrays) e de 2 dimensões (matrizes), estas implementações serão incluidas nos tokens.
+
+O compilador deve gerar pseudo-código, Assembly da máquina virtual (VM).
+
