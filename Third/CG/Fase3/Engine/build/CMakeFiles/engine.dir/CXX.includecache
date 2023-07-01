@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Curva_CATMR_H.hpp
+point.hpp
+../include/point.hpp
+vector
+-
+cmath
+-
+stdio.h
+-
+GL/glew.h
+-
+cstring
+-
+
+../include/point.hpp
+iostream
+-
+cmath
+-
+limits
+-
+
+/home/diogo/Desktop/Programming/CG/TP/Fase3/Engine/src/Curva_CATMR_H.cpp
+Curva_CATMR_H.hpp
+/home/diogo/Desktop/Programming/CG/TP/Fase3/Engine/src/Curva_CATMR_H.hpp
+
