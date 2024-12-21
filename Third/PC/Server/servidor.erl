@@ -38,7 +38,7 @@ user(Sock, Room) ->
             Room ! {leave, self()}
     end.
 
-servidor(Jogos,UsersWaiting,UsersON) ->
+servidor(Jogos,UsersWaiting,UsersOn) ->
     io:fwrite("Users online: ~w~n",[length(UsersON)+length(UsersWaiting)]),
     receive
         {leave,From} -> servidor(Jogos,UsersWaiting--[From],UsersON--[From]);
