@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Bold Italic'), local('Aeonik-BoldItalic'),
+        url('Aeonik-BoldItalic.woff2') format('woff2'),
+        url('Aeonik-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Light'), local('Aeonik-Light'),
+        url('Aeonik-Light.woff2') format('woff2'),
+        url('Aeonik-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Light'), local('Aeonik-Light'),
+        url('Aeonik-Light.woff2') format('woff2'),
+        url('Aeonik-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Regular Italic'), local('Aeonik-RegularItalic'),
+        url('Aeonik-RegularItalic.woff2') format('woff2'),
+        url('Aeonik-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Medium'), local('Aeonik-Medium'),
+        url('Aeonik-Medium.woff2') format('woff2'),
+        url('Aeonik-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Bold'), local('Aeonik-Bold'),
+        url('Aeonik-Bold.woff2') format('woff2'),
+        url('Aeonik-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Light Italic'), local('Aeonik-LightItalic'),
+        url('Aeonik-LightItalic.woff2') format('woff2'),
+        url('Aeonik-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Medium'), local('Aeonik-Medium'),
+        url('Aeonik-Medium.woff2') format('woff2'),
+        url('Aeonik-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Bold Italic'), local('Aeonik-BoldItalic'),
+        url('Aeonik-BoldItalic.woff2') format('woff2'),
+        url('Aeonik-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Regular'), local('Aeonik-Regular'),
+        url('Aeonik-Regular.woff2') format('woff2'),
+        url('Aeonik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Regular Italic'), local('Aeonik-RegularItalic'),
+        url('Aeonik-RegularItalic.woff2') format('woff2'),
+        url('Aeonik-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Light Italic'), local('Aeonik-LightItalic'),
+        url('Aeonik-LightItalic.woff2') format('woff2'),
+        url('Aeonik-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Bold'), local('Aeonik-Bold'),
+        url('Aeonik-Bold.woff2') format('woff2'),
+        url('Aeonik-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik Regular'), local('Aeonik-Regular'),
+        url('Aeonik-Regular.woff2') format('woff2'),
+        url('Aeonik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
